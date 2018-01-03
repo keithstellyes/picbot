@@ -48,5 +48,3 @@ will have the tags `bob` and `alice`, however, `pics/bob-alice/cool.jpeg` will h
 * Images uploaded by users with proper privliges in a Discord channel
 
 * Actual customization and parameters of the discord bot (Probably do PHP-style  configs where the config is Python source code itself)
-
-* Directories implying multiple tags
