@@ -1,6 +1,7 @@
 import os
+import string
 
-file_paths = os.listdir('pics')
+file_paths = os.walk('pics')
 global tags
 global tag_table
 
@@ -12,17 +13,27 @@ def _add_tag(tag, f_name):
     global tag_table
     if tag not in tags:
         tags += (tag,)
-        tag_table[tag] = [f]
+        tag_table[tag] = [f_name]
     else:
-        tag_table[tag].append(f)
+        tag_table[tag].append(f_name)
 
-for f in file_paths:
-    f_tags = f[:f.index('.')].split('-')
+def _tags_from_filepath(file_path):
+    basename = os.path.basename(file_path)
+    f_tags = basename.split('-')
+    if '.' in basename:
+        f_tags = basename[:basename.find('.')].split('-')
+    #[1: to drop pics/ folder, :-1] to drop the filename itself
+    dir_implied_tags = file_path.split(os.sep)[1:-1]
+
     for t in f_tags:
-        try:
-            int(t)
+        if t.strip()[0].isdigit():
             break
-        except ValueError:
-            pass
-        _add_tag(t, f)
+        else:
+            _add_tag(t, file_path)
 
+for directory_and_files in os.walk('pics'):
+    directory = directory_and_files[0]
+    for f in directory_and_files[2]:
+        if f.startswith('.') or os.path.isdir(f):
+            continue
+        f_tags = _tags_from_filepath(os.path.join(directory, f))

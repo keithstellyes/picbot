@@ -38,12 +38,15 @@ The above will simply yield `bob` as a tag, but not `cool`
 
 The above will yield `bob` and `cool42` as tags.
 
-# Nice-to-haves
+In addition, you can have a directory structure in `pics/` too, not however that the directory names will imply tags, too, for example: `pics/bob/alice.jpeg`
+will have the tags `bob` and `alice`, however, `pics/bob-alice/cool.jpeg` will have the tags `bob-alice`, and `cool`, in the future, would like it to have the tags `bob`, `alice`, and `cool`
 
-* Directory structure for `pics/` to improve organizations
+# Nice-to-haves
 
 * `tag-aliases` text file to allow aliasing of tags
 
 * Images uploaded by users with proper privliges in a Discord channel
 
 * Actual customization and parameters of the discord bot (Probably do PHP-style  configs where the config is Python source code itself)
+
+* Directories implying multiple tags
