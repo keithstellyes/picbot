@@ -35,7 +35,7 @@ def _tags_from_filepath(file_path):
             _add_tag(t, file_path)
 
 def init(pic_dir=DEFAULT_PIC_DIR):
-    for directory_and_files in os.walk('pics'):
+    for directory_and_files in os.walk(pic_dir):
         directory = directory_and_files[0]
         for f in directory_and_files[2]:
             if f.startswith('.') or os.path.isdir(f):
