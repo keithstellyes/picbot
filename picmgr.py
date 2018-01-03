@@ -25,8 +25,12 @@ def _tags_from_filepath(file_path):
     if '.' in basename:
         f_tags = basename[:basename.find('.')].split('-')
     #[1: to drop pics/ folder, :-1] to drop the filename itself
-    dir_implied_tags = file_path.split(os.sep)[1:-1]
-    f_tags += dir_implied_tags
+    dir_implied_tag_groups = file_path.split(os.sep)[1:-1]
+    for g in dir_implied_tag_groups:
+        # if we do f_tags + g.split('-') instead, then if we have something
+        # like a/1.jpeg, then 1.jpeg won't get added in the pics with the tag
+        # `a` because the tags from the filename are added first
+        f_tags = g.split('-') + f_tags
 
     for t in f_tags:
         if t.strip()[0].isdigit():
@@ -41,3 +45,6 @@ def init(pic_dir=DEFAULT_PIC_DIR):
             if f.startswith('.') or os.path.isdir(f):
                 continue
             f_tags = _tags_from_filepath(os.path.join(directory, f))
+
+init()
+print(tag_table)

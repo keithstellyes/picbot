@@ -39,7 +39,8 @@ The above will simply yield `bob` as a tag, but not `cool`
 The above will yield `bob` and `cool42` as tags.
 
 In addition, you can have a directory structure in `pics/` too, not however that the directory names will imply tags, too, for example: `pics/bob/alice.jpeg`
-will have the tags `bob` and `alice`, however, `pics/bob-alice/cool.jpeg` will have the tags `bob-alice`, and `cool`, in the future, would like it to have the tags `bob`, `alice`, and `cool`
+will have the tags `bob` and `alice`, also, directories can have multiple
+tags, so `pics/bob-alice/1.jpeg` will be added to both `bob` and `alice` tags
 
 # Nice-to-haves
 
