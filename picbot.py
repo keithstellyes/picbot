@@ -44,9 +44,4 @@ async def on_message(message):
             with open(os.path.join('pics', fname), 'rb') as f:
                 await client.send_file(message.channel, f)
 
-        #print('sending message')
-        #await client.send_message(message.channel, 'You talkin to me?')
-        #with open('pepe.jpg', 'rb') as f:
-        #    await client.send_file(message.channel, f)
-
 client.run(open('token','r').read().strip())
