@@ -4,24 +4,20 @@ import picmgr
 import random
 import os
 
-#client = discord.Client()
-
 class PicBot(discord.Client):
     def __init__(self, token, pic_dir=picmgr.DEFAULT_PIC_DIR,
                  start_cmd='/pb<', end_cmd='>'):
         self.start_cmd = start_cmd
         self.end_cmd = end_cmd
-        super(self.__class__, self).__init__()
         picmgr.init(pic_dir)
+        super(self.__class__, self).__init__()
         super().run(token)
     async def on_ready(self):
         print('Logged in as')
         print(self.user.name)
         print(self.user.id)
-        print('tags:', picmgr.tags)
 
     async def on_message(self, message):
-        #if message.content.startswith('@pb'):
         start_cmd = self.start_cmd
         end_cmd = self.end_cmd
         if start_cmd in message.content and end_cmd in message.content:

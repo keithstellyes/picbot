@@ -46,5 +46,3 @@ def init(pic_dir=DEFAULT_PIC_DIR):
                 continue
             f_tags = _tags_from_filepath(os.path.join(directory, f))
 
-init()
-print(tag_table)

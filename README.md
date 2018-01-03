@@ -47,5 +47,3 @@ tags, so `pics/bob-alice/1.jpeg` will be added to both `bob` and `alice` tags
 * `tag-aliases` text file to allow aliasing of tags
 
 * Images uploaded by users with proper privliges in a Discord channel
-
-* Actual customization and parameters of the discord bot (Probably do PHP-style  configs where the config is Python source code itself)
